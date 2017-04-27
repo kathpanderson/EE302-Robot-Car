@@ -27,6 +27,7 @@ void setup() {
   // and distance to stop at
   int duration = 0; // Update after testing
   int BlacktoWhite = 3; //White < 3V, black > 3V
+  int redToWhite = ;
   int stopDistance = 0; // Update after testing
   
     
@@ -110,11 +111,31 @@ void loop() {
     delay(duration)
   }
   
-  while(){
+  while(analogRead(middleColorSensor) > redToWhite){
   // Loop 3: Upon wall being removed, move forwards using distance sensors as guideance.
   // Stop when sensor finds line.
+  
     // If voltage right is less than voltage left, turn left.
+    if (analogRead(rightIRPort) > analogRead(leftIRPort)){
+      digitalWrite(motorRight, HIGH);
+      delay(duration);
+    }
+    
     // If volatage left is less than voltage left, turn right.
+    else if (analogRead(rightIRPort) < analogRead(leftIRPort)){
+      digitalWrite(motorLeft, HIGH);
+      delay(duration);
+    }
+    
     // If voltages equal, move forwards.
+    else{
+      digitalWrite(motorLeft, HIGH);
+      digitalWrite(motorRight, HIGH);
+      delay(duration)
+    }
+
+    digitalWrite(motorLeft, LOW);
+    digitalWrite(motorRight, LOW);
+    
   }
 }
