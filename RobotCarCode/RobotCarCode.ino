@@ -3,10 +3,13 @@ Code to control the robot car.
 */
 
 void setup() {
+
+  // Set ports for enable output (if needed)
+  // const int enableOutput = ;
   
   // Set ports for motor outputs
-  const int motorLeft = ;
-  const int motorRight = ;
+  const int motorLeft = 5;
+  const int motorRight = 2;
   
   // Set ports for photoresistor sensor input
   const int leftColorPort = ;
@@ -17,11 +20,6 @@ void setup() {
   const int leftIRPort = ;
   const int rightIRPort = ;
   const int middleIRPort = ;
-  
-  // Intilize values read from IR sensors
-  int leftIRVal = 0;
-  int rightIRVal = 0;
-  int middleIRVal = 0;
   
   // Initialize run duration for motors, as well as white/black voltage cut off
   // and distance to stop at
